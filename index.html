@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chính sách bảo mật - MeoGayBot Discord</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        discord: {
+                            brand: '#5865F2',
+                            green: '#57F287',
+                            yellow: '#FEE75C',
+                            fuchsia: '#EB459E',
+                            red: '#ED4245',
+                            darkBg: '#1e1f22',
+                            darkSecondary: '#2b2d31',
+                            darkCard: '#313338',
+                            darkHover: '#35373c',
+                            textMuted: '#949ba4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar matching Discord UI */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #2b2d31;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1a1b1e;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #111214;
+        }
+    </style>
+</head>
+<body class="bg-discord-darkBg text-gray-200 font-sans min-h-screen flex flex-col antialiased selection:bg-discord-brand selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 bg-discord-darkSecondary/95 backdrop-blur border-b border-gray-800 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo & Brand -->
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-discord-brand flex items-center justify-center text-white text-xl font-bold shadow-md shadow-discord-brand/30">
+                        <i class="fa-solid fa-cat"></i>
+                    </div>
+                    <div>
+                        <span class="font-extrabold text-lg sm:text-xl text-white tracking-wide flex items-center gap-2">
+                            MeoGayBot <span class="text-xs font-semibold px-2 py-0.5 rounded bg-discord-green/20 text-discord-green border border-discord-green/30">Privacy Policy</span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Search Input Desktop -->
+                <div class="hidden md:flex flex-1 max-w-md mx-8 relative">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                    <input type="text" id="searchInput" placeholder="Tìm kiếm bảo mật (ví dụ: Dữ liệu thu thập, Xóa dữ liệu)..." 
+                        class="w-full pl-10 pr-4 py-2 bg-discord-darkBg border border-gray-700/80 rounded-lg text-sm text-gray-100 placeholder-gray-500 focus:outline-none focus:border-discord-brand focus:ring-1 focus:ring-discord-brand transition-all">
+                    <span id="searchCount" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-xs text-discord-textMuted bg-discord-darkSecondary px-2 py-0.5 rounded"></span>
+                </div>
+
+                <!-- Status & Action Buttons -->
+                <div class="flex items-center gap-3">
+                    <a href="https://discord.gg/pYeFwHahvU" target="_blank" class="hidden sm:inline-flex items-center gap-2 bg-discord-brand hover:bg-discord-brand/90 text-white font-medium text-sm px-4 py-2 rounded-lg transition-all shadow-md hover:shadow-discord-brand/20">
+                        <i class="fa-brands fa-discord"></i>
+                        <span>Support Server</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mobile Search Bar -->
+            <div class="md:hidden py-2 pb-3 border-t border-gray-800/60 mt-1">
+                <div class="relative">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                    <input type="text" id="searchInputMobile" placeholder="Tìm kiếm bảo mật..." 
+                        class="w-full pl-10 pr-4 py-2 bg-discord-darkBg border border-gray-700 rounded-lg text-sm text-gray-100 placeholder-gray-500 focus:outline-none focus:border-discord-brand">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Header -->
+    <section class="bg-gradient-to-b from-discord-darkSecondary via-discord-darkSecondary/60 to-discord-darkBg py-10 border-b border-gray-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full bg-discord-green/10 text-discord-green border border-discord-green/20 mb-3">
+                    <i class="fa-solid fa-user-shield"></i> Bỏ vệ quyền riêng tư người dùng
+                </div>
+                <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                    Chính Sách Bảo Mật (Privacy Policy)
+                </h1>
+                <p class="mt-2 text-sm sm:text-base text-discord-textMuted leading-relaxed">
+                    Trang này giải thích cách <strong>MeoGayBot</strong> thu thập, sử dụng, lưu trữ và bảo vệ thông tin dữ liệu của bạn khi tương tác với bot.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-4 text-xs text-discord-textMuted">
+                    <span><i class="fa-regular fa-calendar-check mr-1"></i> Ngày cập nhật: <strong>01/10/2026</strong></span>
+                    <span><i class="fa-solid fa-lock mr-1"></i> Tiêu chuẩn: <strong>Discord Developer Policy</strong></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            
+            <!-- Sidebar Table of Contents -->
+            <aside class="lg:col-span-1">
+                <div class="sticky top-24 bg-discord-darkSecondary/90 border border-gray-800 rounded-xl p-4 shadow-xl">
+                    <h2 class="text-xs font-bold text-discord-textMuted uppercase tracking-wider mb-3 px-2 flex items-center gap-2">
+                        <i class="fa-solid fa-list-ul"></i> Mục lục bảo mật
+                    </h2>
+                    <nav class="space-y-1 text-sm" id="toc-nav">
+                        <a href="#section-1" class="toc-link block px-3 py-2 rounded-lg text-gray-300 hover:bg-discord-darkCard hover:text-white transition-all font-medium border-l-2 border-transparent">
+                            1. Dữ liệu thu thập
+                        </a>
+                        <a href="#section-2" class="toc-link block px-3 py-2 rounded-lg text-gray-300 hover:bg-discord-darkCard hover:text-white transition-all font-medium border-l-2 border-transparent">
+                            2. Mục đích sử dụng
+                        </a>
+                        <a href="#section-3" class="toc-link block px-3 py-2 rounded-lg text-gray-300 hover:bg-discord-darkCard hover:text-white transition-all font-medium border-l-2 border-transparent">
+                            3. Lưu trữ & An toàn dữ liệu
+                        </a>
+                        <a href="#section-4" class="toc-link block px-3 py-2 rounded-lg text-gray-300 hover:bg-discord-darkCard hover:text-white transition-all font-medium border-l-2 border-transparent">
+                            4. Chia sẻ dữ liệu
+                        </a>
+                        <a href="#section-5" class="toc-link block px-3 py-2 rounded-lg text-gray-300 hover:bg-discord-darkCard hover:text-white transition-all font-medium border-l-2 border-transparent">
+                            5. Quyền hạn & Yêu cầu xóa dữ liệu
+                        </a>
+                    </nav>
+
+                    <div class="mt-6 pt-4 border-t border-gray-800/80">
+                        <div class="bg-discord-darkCard p-3 rounded-lg border border-gray-800">
+                            <p class="text-xs text-discord-textMuted mb-2">Bạn có thắc mắc về dữ liệu cá nhân?</p>
+                            <a href="https://discord.gg/pYeFwHahvU" target="_blank" class="inline-flex items-center gap-2 text-xs font-semibold text-discord-brand hover:underline">
+                                <i class="fa-solid fa-headset"></i> Yêu cầu hỗ trợ ngay
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Policy Detailed Content -->
+            <section class="lg:col-span-3 space-y-8" id="privacy-content">
+
+                <!-- SECTION 1 -->
+                <article id="section-1" class="bg-discord-darkSecondary border border-gray-800 rounded-xl p-6 sm:p-8 shadow-md scroll-mt-24 transition-all">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="p-2.5 bg-discord-brand/10 text-discord-brand rounded-lg border border-discord-brand/20">
+                            <i class="fa-solid fa-database text-xl"></i>
+                        </div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-white">1. Những dữ liệu chúng tôi thu thập</h2>
+                    </div>
+                    <div class="space-y-4 text-gray-300 leading-relaxed text-sm sm:text-base">
+                        <p>
+                            <strong>MeoGayBot</strong> chỉ thu thập các thông tin tối thiểu cần thiết do Discord API cung cấp nhằm mục đích duy trì tính năng kinh tế (Economy) và lưu trữ trạng thái người dùng. Chúng tôi <strong>KHÔNG KHÁM PHÁ, THU THẬP HOẶC LƯU TRỮ TIN NHẮN RIÊNG TƯ (DM)</strong> của bạn.
+                        </p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+                            <div class="bg-discord-darkCard p-4 rounded-lg border border-gray-800">
+                                <h4 class="font-bold text-discord-brand text-sm mb-1 flex items-center gap-2">
+                                    <i class="fa-solid fa-id-badge"></i> Discord User ID
+                                </h4>
+                                <p class="text-xs text-discord-textMuted">
+                                    Mã định danh duy nhất của tài khoản Discord để lưu trữ số dư tài khoản, vật phẩm, lịch sử giao dịch và cấp độ của bạn trong MeoGayBot.
+                                </p>
+                            </div>
+
+                            <div class="bg-discord-darkCard p-4 rounded-lg border border-gray-800">
+                                <h4 class="font-bold text-discord-brand text-sm mb-1 flex items-center gap-2">
+                                    <i class="fa-solid fa-server"></i> Guild / Server ID
+                                </h4>
+                                <p class="text-xs text-discord-textMuted">
+                                    Mã định danh máy chủ nhằm mục đích thiết lập cấu hình riêng (như prefix, channel thông báo, cài đặt ngôn ngữ).
+                                </p>
+                            </div>
+
+                            <div class="bg-discord-darkCard p-4 rounded-lg border border-gray-800">
+                                <h4 class="font-bold text-discord-brand text-sm mb-1 flex items-center gap-2">
+                                    <i class="fa-solid fa-clock-rotate-left"></i> Nhật ký lệnh (Command Logs)
+                                </h4>
+                                <p class="text-xs text-discord-textMuted">
+                                    Thời gian và tên lệnh slash command bạn đã thực thi nhằm phục vụ việc kiểm tra bug, phòng chống gian lận/spam.
+                                </p>
+                            </div>
+
+                            <div class="bg-discord-darkCard p-4 rounded-lg border border-gray-800">
+                                <h4 class="font-bold text-discord-brand text-sm mb-1 flex items-center gap-2">
+                                    <i class="fa-solid fa-coins"></i> Dữ liệu Game/Economy
+                                </h4>
+                                <p class="text-xs text-discord-textMuted">
+                                    Số dư ví, tiền gửi ngân hàng, các vật phẩm ảo, chuỗi điểm danh daily và lịch sử mini-games.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- SECTION 2 -->
+                <article id="section-2" class="bg-discord-darkSecondary border border-gray-800 rounded-xl p-6 sm:p-8 shadow-md scroll-mt-24 transition-all">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="p-2.5 bg-discord-green/10 text-discord-green rounded-lg border border-discord-green/20">
+                            <i class="fa-solid fa-bullseye text-xl"></i>
+                        </div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-white">2. Mục đích sử dụng dữ liệu</h2>
+                    </div>
+                    <div class="space-y-4 text-gray-300 leading-relaxed text-sm sm:text-base">
+                        <p>Dữ liệu được thu thập duy nhất cho các mục đích sau:</p>
+                        <ul class="space-y-2 text-sm text-gray-300 pl-2">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-discord-green mt-1"></i>
+                                <span>Cung cấp và duy trì các tính năng tính toán số dư, giao dịch tiền ảo, trò chơi may mắn trong MeoGayBot.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-discord-green mt-1"></i>
+                                <span>Phát hiện, ngăn chặn các hành vi gian lận (autoclick, exploit bug, hack/dupe xu).</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-discord-green mt-1"></i>
+                                <span>Tối ưu hóa hiệu năng máy chủ bot và cải thiện trải nghiệm người dùng.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- SECTION 3 -->
+                <article id="section-3" class="bg-discord-darkSecondary border border-gray-800 rounded-xl p-6 sm:p-8 shadow-md scroll-mt-24 transition-all">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="p-2.5 bg-discord-yellow/10 text-discord-yellow rounded-lg border border-discord-yellow/20">
+                            <i class="fa-solid fa-shield-halved text-xl"></i>
+                        </div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-white">3. Lưu trữ & An toàn dữ liệu</h2>
+                    </div>
+                    <div class="space-y-4 text-gray-300 leading-relaxed text-sm sm:text-base">
+                        <p>
+                            Dữ liệu của bạn được lưu trữ an toàn trong hệ thống cơ sở dữ liệu có bảo mật phân quyền nghiêm ngặt. Chỉ những nhà phát triển cốt lõi của <strong>MeoGayBot</strong> mới có quyền truy cập cơ sở dữ liệu để bảo trì.
+                        </p>
+                        <div class="p-4 bg-discord-darkCard rounded-lg border-l-4 border-discord-yellow text-sm">
+                            <p class="text-discord-textMuted">
+                                Chúng tôi áp dụng các biện pháp mã hóa tiêu chuẩn nhằm đảm bảo dữ liệu không bị rò rỉ, mất mát hoặc truy cập trái phép từ bên thứ ba.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- SECTION 4 -->
+                <article id="section-4" class="bg-discord-darkSecondary border border-gray-800 rounded-xl p-6 sm:p-8 shadow-md scroll-mt-24 transition-all">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="p-2.5 bg-discord-fuchsia/10 text-discord-fuchsia rounded-lg border border-discord-fuchsia/20">
+                            <i class="fa-solid fa-share-nodes text-xl"></i>
+                        </div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-white">4. Chia sẻ dữ liệu với bên thứ ba</h2>
+                    </div>
+                    <div class="space-y-4 text-gray-300 leading-relaxed text-sm sm:text-base">
+                        <p>
+                            Chúng tôi <strong>KHÔNG BAO GIỜ BÁN, CHO THUÊ HOẶC CHIA SẺ</strong> dữ liệu cá nhân hay thông tin Discord ID của người dùng cho bất kỳ công ty hoặc đơn vị quảng cáo bên thứ ba nào.
+                        </p>
+                        <p class="text-xs sm:text-sm text-discord-textMuted">
+                            Dữ liệu chỉ có thể được cung cấp trong trường hợp có yêu cầu chính thức bằng văn bản pháp lý từ cơ quan nhà nước có thẩm quyền hoặc theo yêu cầu từ chính nền tảng Discord Inc.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- SECTION 5 -->
+                <article id="section-5" class="bg-discord-darkSecondary border border-gray-800 rounded-xl p-6 sm:p-8 shadow-md scroll-mt-24 transition-all">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="p-2.5 bg-discord-red/10 text-discord-red rounded-lg border border-discord-red/20">
+                            <i class="fa-solid fa-trash-can text-xl"></i>
+                        </div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-white">5. Quyền hạn & Yêu cầu xóa dữ liệu (Data Deletion)</h2>
+                    </div>
+                    <div class="space-y-4 text-gray-300 leading-relaxed text-sm sm:text-base">
+                        <p>
+                            Bạn có toàn quyền yêu cầu xem hoặc xóa toàn bộ dữ liệu cá nhân của mình liên quan đến MeoGayBot khỏi hệ thống cơ sở dữ liệu của chúng tôi.
+                        </p>
+
+                        <div class="p-4 bg-discord-darkCard border border-gray-800 rounded-lg">
+                            <h4 class="font-bold text-white text-sm mb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-paper-plane text-discord-brand"></i> Cách gửi yêu cầu xóa dữ liệu:
+                            </h4>
+                            <ol class="list-decimal pl-5 space-y-2 text-xs sm:text-sm text-discord-textMuted">
+                                <span>Tham gia máy chủ hỗ trợ chính thức: <a href="https://discord.gg/pYeFwHahvU" target="_blank" class="text-discord-brand hover:underline font-semibold">https://discord.gg/pYeFwHahvU</a>.</span>
+                                <span>Tạo vé hỗ trợ (Support Ticket) hoặc liên hệ Admin/Developer của MeoGayBot.</span>
+                                <span>Cung cấp Discord User ID của bạn và gửi yêu cầu xóa toàn bộ dữ liệu. Dữ liệu của bạn sẽ được làm sạch vĩnh viễn trong vòng <strong>24 đến 48 giờ</strong>.</span>
+                            </ol>
+                        </div>
+                    </div>
+                </article>
+
+            </section>
+        </div>
+    </main>
+
+    <!-- Back To Top Floating Button -->
+    <button id="backToTopBtn" class="fixed bottom-6 right-6 hidden z-40 bg-discord-brand hover:bg-discord-brand/90 text-white p-3.5 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 focus:outline-none">
+        <i class="fa-solid fa-arrow-up text-base"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer class="bg-discord-darkSecondary border-t border-gray-800 py-8 mt-12 text-discord-textMuted text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded-full bg-discord-brand flex items-center justify-center text-white text-xs font-bold">
+                    <i class="fa-solid fa-cat"></i>
+                </div>
+                <span class="text-gray-300 font-semibold">MeoGayBot Discord</span>
+                <span>&copy; 2026. All rights reserved.</span>
+            </div>
+            <div class="flex items-center gap-6 text-xs">
+                <a href="terms-of-service.html" class="hover:text-white transition-colors">Điều khoản dịch vụ</a>
+                <a href="#section-1" class="hover:text-white transition-colors">Chính sách bảo mật</a>
+                <a href="https://discord.gg/pYeFwHahvU" target="_blank" class="hover:text-white transition-colors">Support Server</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Logic Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('searchInput');
+            const searchInputMobile = document.getElementById('searchInputMobile');
+            const searchCount = document.getElementById('searchCount');
+            const articles = document.querySelectorAll('#privacy-content article');
+            const tocLinks = document.querySelectorAll('.toc-link');
+            const backToTopBtn = document.getElementById('backToTopBtn');
+
+            // --- 1. SEARCH FUNCTIONALITY ---
+            function handleSearch(query) {
+                const term = query.trim().toLowerCase();
+                let matches = 0;
+
+                articles.forEach(article => {
+                    const text = article.textContent.toLowerCase();
+                    if (term === '') {
+                        article.style.display = 'block';
+                    } else if (text.includes(term)) {
+                        article.style.display = 'block';
+                        matches++;
+                    } else {
+                        article.style.display = 'none';
+                    }
+                });
+
+                if (term !== '') {
+                    searchCount.textContent = `${matches} mục khớp`;
+                    searchCount.classList.remove('hidden');
+                } else {
+                    searchCount.classList.add('hidden');
+                }
+            }
+
+            searchInput.addEventListener('input', (e) => handleSearch(e.target.value));
+            if (searchInputMobile) {
+                searchInputMobile.addEventListener('input', (e) => handleSearch(e.target.value));
+            }
+
+            // --- 2. TOC ACTIVE SECTION Observer ---
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -60% 0px',
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        tocLinks.forEach(link => {
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('bg-discord-darkCard', 'text-white', 'border-discord-brand');
+                                link.classList.remove('text-gray-300', 'border-transparent');
+                            } else {
+                                link.classList.remove('bg-discord-darkCard', 'text-white', 'border-discord-brand');
+                                link.classList.add('text-gray-300', 'border-transparent');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            articles.forEach(article => observer.observe(article));
+
+            // --- 3. BACK TO TOP BUTTON LOGIC ---
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.remove('hidden');
+                } else {
+                    backToTopBtn.classList.add('hidden');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
